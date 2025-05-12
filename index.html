@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brodelt - Fitness Consultation</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="index.css" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+  <!-- Header -->
+  <header id="header" class="header-scrolled">
+    <div class="container header-container">
+      <a href="/" class="logo">Brodelt</a>
+      
+      <nav class="desktop-nav">
+        <a href="/" class="active">Home</a>
+        <a href="/#about">About</a>
+        <a href="/#services">Services</a>
+        <a href="/#contact">Contact</a>
+        <a href="/#contact" class="button button-primary">Get Started</a>
+      </nav>
+      
+      <button class="mobile-menu-button" id="mobileMenuButton" aria-label="Toggle menu">
+        <i data-lucide="menu"></i>
+      </button>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu" style="display: none;">
+      <a href="/" class="active">Home</a>
+      <a href="/#about">About</a>
+      <a href="/#services">Services</a>
+      <a href="/#contact">Contact</a>
+      <div style="padding: 0.75rem 1.5rem;">
+        <a href="/#contact" class="button button-primary w-full">Get Started</a>
+      </div>
+    </div>
+  </header>
+  
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-gradient"></div>
+    <div class="hero-background">
+      <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80" alt="Fitness Background" id="heroBackground">
+    </div>
+    
+    <div class="container hero-content">
+      <div class="hero-grid">
+        <div class="hero-text">
+          <div>
+            <span class="hero-badge">Professional Fitness Advice</span>
+            <h1 class="hero-title">Transform Your Fitness Journey With Expert Guidance</h1>
+          </div>
+          
+          <p class="hero-description">
+            Connect with certified trainers who understand your unique fitness needs. 
+            Get personalized advice, workout plans, and continuous support to achieve your goals.
+          </p>
+          
+          <div class="hero-buttons">
+            <button class="button button-primary button-lg" id="heroButton">Get Started</button>
+            <a href="/#about" class="button button-outline button-lg">Learn More</a>
+          </div>
+        </div>
+        
+        <div class="hero-image">
+          <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80" alt="Fitness Training">
+          <div class="hero-image-overlay">
+            <div class="hero-image-text">
+              <h3>Expert Trainers</h3>
+              <p>Our certified professionals are ready to guide your fitness journey</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Scroll indicator -->
+    <div class="scroll-indicator">
+      <i data-lucide="chevron-down"></i>
+    </div>
+  </section>
+  
+  <!-- Features Section -->
+  <section id="services" class="features">
+    <div class="container">
+      <div class="features-header">
+        <span class="features-badge">Our Services</span>
+        <h2 class="features-title">Comprehensive Fitness Solutions</h2>
+        <p class="features-description">
+          Discover our range of personalized services designed to help you achieve your fitness goals efficiently and effectively.
+        </p>
+      </div>
+      
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i data-lucide="dumbbell"></i>
+          </div>
+          <h3 class="feature-title">Personalized Workout Plans</h3>
+          <p class="feature-description">Get workout routines tailored specifically to your body, goals, and fitness level.</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i data-lucide="utensils-crossed"></i>
+          </div>
+          <h3 class="feature-title">Nutrition Guidance</h3>
+          <p class="feature-description">Receive expert advice on diet planning and nutritional requirements for optimal results.</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i data-lucide="heart"></i>
+          </div>
+          <h3 class="feature-title">Health Monitoring</h3>
+          <p class="feature-description">Track your progress with regular assessments and health monitoring by professionals.</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i data-lucide="calendar"></i>
+          </div>
+          <h3 class="feature-title">Flexible Scheduling</h3>
+          <p class="feature-description">Book sessions at your convenience with our flexible scheduling system.</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i data-lucide="users"></i>
+          </div>
+          <h3 class="feature-title">Expert Trainers</h3>
+          <p class="feature-description">Work with certified fitness professionals who specialize in different aspects of fitness.</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i data-lucide="message-circle"></i>
+          </div>
+          <h3 class="feature-title">Continuous Support</h3>
+          <p class="feature-description">Get ongoing motivation and support through direct messaging with your trainer.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <div class="contact-header">
+        <span class="contact-badge">Get Started</span>
+        <h2 class="contact-title">Request Your Personalized Consultation</h2>
+        <p class="contact-description">
+          Fill out the form below to connect with our fitness experts.
+        </p>
+      </div>
+      
+      <!-- Form Card -->
+      <div class="form-card">
+        <div class="form-header">
+          <h3 class="form-title">Request Fitness Consultation</h3>
+          <p class="form-description">
+            Fill out the form below to connect with our expert trainers. 
+          </p>
+        </div>
+        
+        <form id="consultationForm" class="form-content" action="https://formsubmit.co/brodelt.in@gmail.com" method="POST">
+          <input type="hidden" name="_subject" value="New Fitness Consultation Request">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_next" value="?success=true">
+          <input type="hidden" name="_captcha" value="false">
+          
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="name" class="form-label">Name <span>*</span></label>
+              <input type="text" id="name" name="name" class="form-input" placeholder="John Doe" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="email" class="form-label">Email <span>*</span></label>
+              <input type="email" id="email" name="email" class="form-input" placeholder="john@example.com" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="phone" class="form-label">Phone Number <span>*</span></label>
+              <input type="tel" id="phone" name="phone" class="form-input" placeholder="+1 (555) 123-4567" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="age" class="form-label">Age</label>
+              <input type="number" id="age" name="age" class="form-input" placeholder="25">
+            </div>
+            
+            <div class="form-group">
+              <label for="height" class="form-label">Height (cm)</label>
+              <input type="text" id="height" name="height" class="form-input" placeholder="175">
+            </div>
+            
+            <div class="form-group">
+              <label for="weight" class="form-label">Weight (kg)</label>
+              <input type="text" id="weight" name="weight" class="form-input" placeholder="70">
+            </div>
+            
+            <div class="form-group">
+              <label for="fitnessGoal" class="form-label">Fitness Goal <span>*</span></label>
+              <select id="fitnessGoal" name="fitnessGoal" class="form-select" required>
+                <option value="">Select a goal</option>
+                <option value="weightLoss">Weight Loss</option>
+                <option value="muscleGain">Muscle Gain</option>
+                <option value="toning">Toning</option>
+                <option value="endurance">Endurance</option>
+                <option value="flexibility">Flexibility</option>
+                <option value="overall">Overall Fitness</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label for="fitnessLevel" class="form-label">Fitness Level</label>
+              <select id="fitnessLevel" name="fitnessLevel" class="form-select">
+                <option value="">Select your level</option>
+                <option value="beginner">Beginner</option>
+                <option value="intermediate">Intermediate</option>
+                <option value="advanced">Advanced</option>
+              </select>
+            </div>
+          </div>
+          
+          <div class="form-group" style="margin-top: 1.5rem;">
+            <label for="healthIssues" class="form-label">Any Health Issues or Injuries?</label>
+            <textarea id="healthIssues" name="healthIssues" class="form-textarea" placeholder="Please mention any health concerns or previous injuries..."></textarea>
+          </div>
+          
+          <div class="form-group" style="margin-top: 1.5rem;">
+            <label for="message" class="form-label">Your Fitness Challenge or Query <span>*</span></label>
+            <textarea id="message" name="message" class="form-textarea" placeholder="Describe your fitness challenge or what specific advice you're looking for..." required></textarea>
+          </div>
+          
+          <div class="form-footer">
+            <p class="form-note">
+              Required fields are marked with <span>*</span>
+            </p>
+            <button type="submit" class="button button-primary button-lg" id="submitButton">Submit Form</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Success Modal -->
+  <div id="successModal" class="modal" style="display: none;">
+    <div class="modal-content">
+      <div class="modal-icon">
+        <i data-lucide="check-circle"></i>
+      </div>
+      <h3 class="modal-title">Thank You!</h3>
+      <p class="modal-message">Your consultation request has been submitted successfully. We'll contact you soon.</p>
+      <button class="button button-primary" id="closeModal">Close</button>
+    </div>
+  </div>
+  
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <h3 class="footer-logo">Brodelt</h3>
+          <p class="footer-description">
+            Professional fitness advice tailored to your needs. Connect with expert trainers who understand your fitness journey.
+          </p>
+          <div class="footer-social">
+            <a href="#"><i data-lucide="instagram"></i></a>
+            <a href="#"><i data-lucide="facebook"></i></a>
+            <a href="#"><i data-lucide="twitter"></i></a>
+            <a href="#"><i data-lucide="youtube"></i></a>
+          </div>
+        </div>
+        
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/#about">About Us</a></li>
+            <li><a href="/#services">Services</a></li>
+            <li><a href="/#contact">Contact</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-links">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="#">Personal Training</a></li>
+            <li><a href="#">Nutrition Advice</a></li>
+            <li><a href="#">Workout Plans</a></li>
+            <li><a href="#">Fitness Consulting</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <div class="footer-bottom-content">
+          <p class="footer-copyright">
+            © <span id="currentYear"></span> Brodelt. All rights reserved.
+          </p>
+          <div class="footer-legal">
+            <a href="/privacy">Privacy Policy</a>
+            <a href="/terms">Terms of Service</a>
+            <a href="/cookie-policy">Cookie Policy</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+    
+    // Set current year in footer
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+    
+    // Header scroll effect
+    window.addEventListener('scroll', function() {
+      const header = document.getElementById('header');
+      if (window.scrollY > 10) {
+        header.classList.add('header-scrolled');
+      } else {
+        header.classList.remove('header-scrolled');
+      }
+    });
+    
+    // Mobile menu toggle
+    const mobileMenuButton = document.getElementById('mobileMenuButton');
+    const mobileMenu = document.getElementById('mobileMenu');
+    
+    mobileMenuButton.addEventListener('click', function() {
+      if (mobileMenu.style.display === 'none' || !mobileMenu.style.display) {
+        mobileMenu.style.display = 'block';
+      } else {
+        mobileMenu.style.display = 'none';
+      }
+    });
+    
+    // Hero background parallax effect
+    const heroBackground = document.getElementById('heroBackground');
+    window.addEventListener('scroll', function() {
+      if (heroBackground) {
+        const scrollValue = window.scrollY;
+        heroBackground.style.transform = `translateY(${scrollValue * 0.2}px)`;
+      }
+    });
+    
+    // Hero button scroll to contact
+    document.getElementById('heroButton').addEventListener('click', function() {
+      const contactSection = document.getElementById('contact');
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    });
+    
+    // Check for success parameter in URL
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('success') === 'true') {
+      document.getElementById('successModal').style.display = 'flex';
+    }
+    
+    // Close modal
+    document.getElementById('closeModal').addEventListener('click', function() {
+      document.getElementById('successModal').style.display = 'none';
+      // Remove the success parameter from URL
+      window.history.replaceState({}, document.title, window.location.pathname);
+    });
+  </script>
+  
+</body>
+</html>
