@@ -166,11 +166,12 @@
           </p>
         </div>
         
-        <form id="consultationForm" class="form-content" action="https://formsubmit.co/brodelt.in@gmail.com" method="POST" onsubmit="return validateForm()">
+        <form id="consultationForm" class="form-content" action="https://formsubmit.co/brodelt.in@gmail.com" method="POST">
           <input type="hidden" name="_subject" value="New Fitness Consultation Request">
           <input type="hidden" name="_template" value="table">
-          <input type="hidden" name="_next" value="thankyou.html">
+          <input type="hidden" name="_next" value="./thankyou.html">
           <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_autoresponse" value="Thank you for your fitness consultation request. We have received your information and will contact you soon.">
           
           <div class="form-grid">
             <div class="form-group">
@@ -317,39 +318,35 @@
     // Initialize Lucide icons
     lucide.createIcons();
     
-    // Form validation
-    function validateForm() {
-      const form = document.getElementById('consultationForm');
-      const requiredFields = form.querySelectorAll('[required]');
-      let isValid = true;
-
-      requiredFields.forEach(field => {
-        if (!field.value.trim()) {
-          isValid = false;
-          field.classList.add('error');
-        } else {
-          field.classList.remove('error');
-        }
+    // Form submission handling
+    document.getElementById('consultationForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const form = this;
+      const submitButton = form.querySelector('button[type="submit"]');
+      const originalButtonText = submitButton.innerHTML;
+      
+      // Show loading state
+      submitButton.disabled = true;
+      submitButton.innerHTML = '<i data-lucide="loader" class="animate-spin"></i> Sending...';
+      lucide.createIcons();
+      
+      // Send form data
+      fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form)
+      })
+      .then(response => {
+        // Redirect to thank you page
+        window.location.href = 'thankyou.html';
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        submitButton.disabled = false;
+        submitButton.innerHTML = originalButtonText;
+        alert('There was an error submitting the form. Please try again.');
       });
-
-      // Phone number validation
-      const phone = document.getElementById('phone');
-      const phoneRegex = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/;
-      if (!phoneRegex.test(phone.value)) {
-        isValid = false;
-        phone.classList.add('error');
-      }
-
-      // Email validation
-      const email = document.getElementById('email');
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(email.value)) {
-        isValid = false;
-        email.classList.add('error');
-      }
-
-      return isValid;
-    }
+    });
 
     // Set current year in footer
     document.getElementById('currentYear').textContent = new Date().getFullYear();
