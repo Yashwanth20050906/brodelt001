@@ -3,42 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Thank You - Brodelt</title>
+  <title>Thank You - Brodelt Fitness</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="index.css" />
   <script src="https://unpkg.com/lucide@latest"></script>
-  <style>
-    /* Additional style to ensure the main content of the thank you page is nicely centered */
-    .thank-you-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      min-height: 50vh; /* Ensure it takes up some space */
-      justify-content: center;
-    }
-    /* Ensure body takes full height for footer positioning if content is short */
-    body {
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
-    main.section-padding {
-      flex-grow: 1; /* Allows main content to expand and push footer down */
-    }
-  </style>
 </head>
 <body>
-  <header id="header">
+  <!-- Header -->
+  <header id="header" class="header-scrolled">
     <div class="container header-container">
-      <a href="index.html" class="logo">Brodelt</a>
+      <a href="/" class="logo">Brodelt</a>
       
       <nav class="desktop-nav">
-        <a href="index.html">Home</a>
-        <a href="index.html#about">About</a>
-        <a href="index.html#services">Services</a>
-        <a href="index.html#contact">Contact</a>
-        <a href="index.html#contact" class="button button-primary">Get Started</a>
+        <a href="/" class="active">Home</a>
+        <a href="/#about">About</a>
+        <a href="/#services">Services</a>
+        <a href="/#contact">Contact</a>
+        <a href="/#contact" class="button button-primary">Get Started</a>
       </nav>
       
       <button class="mobile-menu-button" id="mobileMenuButton" aria-label="Toggle menu">
@@ -46,24 +27,39 @@
       </button>
     </div>
     
+    <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu" style="display: none;">
-      <a href="index.html">Home</a>
-      <a href="index.html#about">About</a>
-      <a href="index.html#services">Services</a>
-      <a href="index.html#contact">Contact</a>
+      <a href="/" class="active">Home</a>
+      <a href="/#about">About</a>
+      <a href="/#services">Services</a>
+      <a href="/#contact">Contact</a>
       <div style="padding: 0.75rem 1.5rem;">
-        <a href="index.html#contact" class="button button-primary w-full">Get Started</a>
+        <a href="/#contact" class="button button-primary w-full">Get Started</a>
       </div>
     </div>
   </header>
 
-  <main class="section-padding"> <div class="container thank-you-container">
-      <h1>Thank You!</h1>
-      <p>Your submission has been received. We'll get back to you soon.</p>
-      <a href="index.html" class="button button-primary" style="margin-top: 1.5rem;">Go Back Home</a>
+  <!-- Thank You Section -->
+  <section class="hero" style="min-height: 80vh;">
+    <div class="hero-gradient"></div>
+    <div class="container hero-content">
+      <div style="max-width: 600px; margin: 0 auto; text-align: center;">
+        <div class="feature-icon" style="margin: 0 auto 2rem;">
+          <i data-lucide="check-circle" style="width: 48px; height: 48px; color: var(--primary);"></i>
+        </div>
+        <span class="hero-badge">Success!</span>
+        <h1 class="hero-title" style="font-size: 2.5rem; margin: 1rem 0;">Thank You!</h1>
+        <p class="hero-description" style="margin-bottom: 2rem;">
+          Your fitness consultation request has been received. Our expert trainers will review your information and get back to you soon to start your fitness journey.
+        </p>
+        <div class="hero-buttons" style="justify-content: center;">
+          <a href="index.html" class="button button-primary button-lg">Return to Homepage</a>
+        </div>
+      </div>
     </div>
-  </main>
+  </section>
 
+  <!-- Footer -->
   <footer>
     <div class="container">
       <div class="footer-grid">
@@ -83,10 +79,10 @@
         <div class="footer-links">
           <h4>Quick Links</h4>
           <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="index.html#about">About Us</a></li>
-            <li><a href="index.html#services">Services</a></li>
-            <li><a href="index.html#contact">Contact</a></li>
+            <li><a href="/">Home</a></li>
+            <li><a href="/#about">About Us</a></li>
+            <li><a href="/#services">Services</a></li>
+            <li><a href="/#contact">Contact</a></li>
           </ul>
         </div>
         
@@ -121,53 +117,29 @@
     lucide.createIcons();
     
     // Set current year in footer
-    // Ensure the element exists before trying to set its textContent
-    const currentYearElement = document.getElementById('currentYear');
-    if (currentYearElement) {
-      currentYearElement.textContent = new Date().getFullYear();
-    }
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
     
     // Header scroll effect
-    const header = document.getElementById('header');
-    if (header) { // Check if header exists
-        // Apply scrolled class immediately if not at top, or on scroll
-        if (window.scrollY > 10) {
-            header.classList.add('header-scrolled');
-        } else {
-            // Check if it has the class from a previous load and remove if at top
-            if (!header.classList.contains('header-scrolled') && window.location.pathname.endsWith('index.html')) {
-                 // Only add header-scrolled by default on index.html as per original code
-            } else if (!window.location.pathname.endsWith('index.html')) {
-                 header.classList.remove('header-scrolled'); // Default for other pages unless scrolled
-            }
-        }
-
-        window.addEventListener('scroll', function() {
-          if (window.scrollY > 10) {
-            header.classList.add('header-scrolled');
-          } else {
-            // For non-index pages, remove scrolled class if at top
-            // For index.html, it seems the original intent was to keep it scrolled if initially set.
-            // To simplify and make it consistent:
-            header.classList.remove('header-scrolled');
-          }
-        });
-    }
+    window.addEventListener('scroll', function() {
+      const header = document.getElementById('header');
+      if (window.scrollY > 10) {
+        header.classList.add('header-scrolled');
+      } else {
+        header.classList.remove('header-scrolled');
+      }
+    });
     
     // Mobile menu toggle
     const mobileMenuButton = document.getElementById('mobileMenuButton');
     const mobileMenu = document.getElementById('mobileMenu');
     
-    if (mobileMenuButton && mobileMenu) { // Check if elements exist
-      mobileMenuButton.addEventListener('click', function() {
-        if (mobileMenu.style.display === 'none' || !mobileMenu.style.display) {
-          mobileMenu.style.display = 'block';
-        } else {
-          mobileMenu.style.display = 'none';
-        }
-      });
-    }
+    mobileMenuButton.addEventListener('click', function() {
+      if (mobileMenu.style.display === 'none' || !mobileMenu.style.display) {
+        mobileMenu.style.display = 'block';
+      } else {
+        mobileMenu.style.display = 'none';
+      }
+    });
   </script>
 </body>
 </html>
-
