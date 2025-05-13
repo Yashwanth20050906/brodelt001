@@ -12,14 +12,14 @@
   <!-- Header -->
   <header id="header" class="header-scrolled">
     <div class="container header-container">
-      <a href="/" class="logo">Brodelt</a>
+      <a href="index.html" class="logo">Brodelt</a>
       
       <nav class="desktop-nav">
-        <a href="/" class="active">Home</a>
-        <a href="/#about">About</a>
-        <a href="/#services">Services</a>
-        <a href="/#contact">Contact</a>
-        <a href="/#contact" class="button button-primary">Get Started</a>
+        <a href="index.html" class="active">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+        <a href="#contact" class="button button-primary">Get Started</a>
       </nav>
       
       <button class="mobile-menu-button" id="mobileMenuButton" aria-label="Toggle menu">
@@ -29,12 +29,12 @@
     
     <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu" style="display: none;">
-      <a href="/" class="active">Home</a>
-      <a href="/#about">About</a>
-      <a href="/#services">Services</a>
-      <a href="/#contact">Contact</a>
+      <a href="index.html" class="active">Home</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
       <div style="padding: 0.75rem 1.5rem;">
-        <a href="/#contact" class="button button-primary w-full">Get Started</a>
+        <a href="#contact" class="button button-primary w-full">Get Started</a>
       </div>
     </div>
   </header>
@@ -166,10 +166,10 @@
           </p>
         </div>
         
-        <form id="consultationForm" class="form-content" action="https://formsubmit.co/brodelt.in@gmail.com" method="POST">
+        <form id="consultationForm" class="form-content" action="https://formsubmit.co/brodelt.in@gmail.com" method="POST" onsubmit="return validateForm()">
           <input type="hidden" name="_subject" value="New Fitness Consultation Request">
           <input type="hidden" name="_template" value="table">
-          <input type="hidden" name="_next" value="?success=true">
+          <input type="hidden" name="_next" value="thankyou.html">
           <input type="hidden" name="_captcha" value="false">
           
           <div class="form-grid">
@@ -317,6 +317,40 @@
     // Initialize Lucide icons
     lucide.createIcons();
     
+    // Form validation
+    function validateForm() {
+      const form = document.getElementById('consultationForm');
+      const requiredFields = form.querySelectorAll('[required]');
+      let isValid = true;
+
+      requiredFields.forEach(field => {
+        if (!field.value.trim()) {
+          isValid = false;
+          field.classList.add('error');
+        } else {
+          field.classList.remove('error');
+        }
+      });
+
+      // Phone number validation
+      const phone = document.getElementById('phone');
+      const phoneRegex = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/;
+      if (!phoneRegex.test(phone.value)) {
+        isValid = false;
+        phone.classList.add('error');
+      }
+
+      // Email validation
+      const email = document.getElementById('email');
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email.value)) {
+        isValid = false;
+        email.classList.add('error');
+      }
+
+      return isValid;
+    }
+
     // Set current year in footer
     document.getElementById('currentYear').textContent = new Date().getFullYear();
     
@@ -368,6 +402,17 @@
       document.getElementById('successModal').style.display = 'none';
       // Remove the success parameter from URL
       window.history.replaceState({}, document.title, window.location.pathname);
+    });
+
+    // Input field focus effects
+    const formInputs = document.querySelectorAll('.form-input, .form-textarea, .form-select');
+    formInputs.forEach(input => {
+      input.addEventListener('focus', () => {
+        input.parentElement.classList.add('focused');
+      });
+      input.addEventListener('blur', () => {
+        input.parentElement.classList.remove('focused');
+      });
     });
   </script>
   
